@@ -3,21 +3,21 @@
 // Initial demo todos
 let demoTodos = [
   {
-    _id: '1',
+    id: '1',
     title: 'Learn React',
     description: 'Study React fundamentals and build projects',
     completed: false,
     createdAt: new Date().toISOString()
   },
   {
-    _id: '2',
+    id: '2',
     title: 'Build Todo App',
     description: 'Create a fully functional todo application',
     completed: true,
     createdAt: new Date(Date.now() - 86400000).toISOString()
   },
   {
-    _id: '3',
+    id: '3',
     title: 'Deploy to GitHub',
     description: 'Push code to repository and deploy',
     completed: false,
@@ -65,33 +65,33 @@ export const getProfile = async () => {
 // Todo API (demo)
 export const getTodos = async () => {
   await delay(300);
-  return { todos: demoTodos };
+  return demoTodos;
 };
 
 export const createTodo = async (todo) => {
   await delay(400);
   const newTodo = {
-    _id: String(Date.now()),
+    id: String(Date.now()),
     ...todo,
     completed: false,
     createdAt: new Date().toISOString()
   };
   demoTodos.unshift(newTodo);
-  return { todo: newTodo };
+  return newTodo;
 };
 
 export const updateTodo = async (id, todo) => {
   await delay(400);
-  const index = demoTodos.findIndex(t => t._id === id);
+  const index = demoTodos.findIndex(t => t.id === id);
   if (index !== -1) {
     demoTodos[index] = { ...demoTodos[index], ...todo };
-    return { todo: demoTodos[index] };
+    return demoTodos[index];
   }
   throw new Error('Todo not found');
 };
 
 export const deleteTodo = async (id) => {
   await delay(300);
-  demoTodos = demoTodos.filter(t => t._id !== id);
+  demoTodos = demoTodos.filter(t => t.id !== id);
   return { message: 'Todo deleted successfully' };
 };
