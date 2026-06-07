@@ -9,7 +9,7 @@ const Login = () => {
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  
+
   const { login } = useAuth();
   const navigate = useNavigate();
 
@@ -39,9 +39,13 @@ const Login = () => {
     <div className="auth-container">
       <div className="auth-card">
         <h2>Login</h2>
-        
+
+        <div className="demo-info">
+          <strong>Demo Mode:</strong> Use any email and password to login
+        </div>
+
         {error && <div className="error-message">{error}</div>}
-        
+
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="email">Email</label>
@@ -54,7 +58,7 @@ const Login = () => {
               required
             />
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="password">Password</label>
             <input
@@ -66,12 +70,12 @@ const Login = () => {
               required
             />
           </div>
-          
+
           <button type="submit" className="btn btn-primary" disabled={loading}>
             {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
-        
+
         <p className="auth-link">
           Don't have an account? <Link to="/register">Register</Link>
         </p>

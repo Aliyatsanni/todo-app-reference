@@ -367,6 +367,17 @@ body {
 }
 
 /* Error and Loading States */
+.demo-info {
+  background: #e6f7f1;
+  border: 1.5px solid #74dfbd;
+  color: #6B4F80;
+  padding: 0.85rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
 .error-message {
   background: #fef2f2;
   border: 1.5px solid #f78bac;

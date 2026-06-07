@@ -11,7 +11,7 @@ const Register = () => {
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  
+
   const { register } = useAuth();
   const navigate = useNavigate();
 
@@ -47,9 +47,13 @@ const Register = () => {
     <div className="auth-container">
       <div className="auth-card">
         <h2>Register</h2>
-        
+
+        <div className="demo-info">
+          <strong>Demo Mode:</strong> Use any email, password, and name to register
+        </div>
+
         {error && <div className="error-message">{error}</div>}
-        
+
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="name">Name</label>
@@ -62,7 +66,7 @@ const Register = () => {
               required
             />
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="email">Email</label>
             <input
@@ -74,7 +78,7 @@ const Register = () => {
               required
             />
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="password">Password</label>
             <input
@@ -87,7 +91,7 @@ const Register = () => {
               minLength={6}
             />
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="confirmPassword">Confirm Password</label>
             <input
@@ -99,12 +103,12 @@ const Register = () => {
               required
             />
           </div>
-          
+
           <button type="submit" className="btn btn-primary" disabled={loading}>
             {loading ? 'Creating account...' : 'Register'}
           </button>
         </form>
-        
+
         <p className="auth-link">
           Already have an account? <Link to="/login">Login</Link>
         </p>
