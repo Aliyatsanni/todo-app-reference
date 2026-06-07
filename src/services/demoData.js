@@ -84,7 +84,11 @@ export const updateTodo = async (id, todo) => {
   await delay(400);
   const index = demoTodos.findIndex(t => t.id === id);
   if (index !== -1) {
-    demoTodos[index] = { ...demoTodos[index], ...todo };
+    demoTodos[index] = {
+      ...demoTodos[index],
+      ...todo,
+      updatedAt: new Date().toISOString()
+    };
     return demoTodos[index];
   }
   throw new Error('Todo not found');

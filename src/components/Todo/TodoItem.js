@@ -84,11 +84,11 @@ const TodoItem = ({ todo, onUpdate, onDelete }) => {
               )}
               <div className="todo-meta">
                 <span className="todo-date">
-                  Created: {new Date(todo.created_at).toLocaleDateString()}
+                  Created: {new Date(todo.createdAt).toLocaleDateString()}
                 </span>
-                {todo.updated_at !== todo.created_at && (
+                {todo.updatedAt && (
                   <span className="todo-date">
-                    Updated: {new Date(todo.updated_at).toLocaleDateString()}
+                    Updated: {new Date(todo.updatedAt).toLocaleDateString()}
                   </span>
                 )}
               </div>
